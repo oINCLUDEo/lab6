@@ -22,7 +22,7 @@ def generate_random_number():
 
 
 print('\n\033[35mНатуральные числа до n, которые начинаются и заканчиваются нечетной цифрой:\033[93m')
-for i in range(1, n):
+for i in range(1, n + 1):
     # Создаем список со всеми id
     a.append(generate_random_number())
     # Добавляем id пользователю
@@ -32,7 +32,7 @@ for i in range(1, n):
         print(i, end=' ')
 print('\n\n\033[35mСписок всех ID пользователей:\033[93m')
 print(*a, '\033[35m\n')
-for i in range(1, n):
+for i in range(1, n + 1):
     # Проверяем остались ли мы в том же десятке
     if str(i - 1)[0] == str(i)[0] and int(i) != 11 or int(i) < 11:
         if int(c[i]) > max1:
@@ -43,4 +43,5 @@ for i in range(1, n):
         max1 = int(c[i])
 if i % 2 != 0:
     count += 1
-    print('В\033[93m', count, '\033[35mдесятке максимальный ID пользователя:\033[93m', max1, '\033[35m')
+    print('В\033[93m', count, '\033[35mдесятке максимальный ID пользователя:\033[93m', max1, '\033[35m\n')
+print(c)
