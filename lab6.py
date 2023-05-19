@@ -4,7 +4,7 @@
 # Получаем входное значение от пользователя
 import random
 
-n = int(input("\033[92mВведите значение n: "))
+n = int(input("Введите значение n: "))
 count = 0
 c = {}
 a = []
@@ -24,7 +24,7 @@ def generate_random_number():
         generate_random_number()
 
 
-print('\n\033[35mНатуральные числа до n, которые начинаются и заканчиваются нечетной цифрой:\033[93m')
+print('\nНатуральные числа до n, которые начинаются и заканчиваются нечетной цифрой:')
 for i in range(1, n + 1):
     # Создаем список со всеми id
     a.append(generate_random_number())
@@ -33,8 +33,8 @@ for i in range(1, n + 1):
     # Проверка на то, что числа начинаются и заканчиваются нечетной цифрой
     if int(str(i)[0]) % 2 != 0 and int(str(i)[-1]) % 2 != 0:
         print(i, end=' ')
-print('\n\n\033[35mСписок всех ID пользователей:\033[93m')
-print(*a, '\033[35m\n')
+print('\n\nСписок всех ID пользователей:')
+print(*a, '\n')
 for i in range(1, n + 1):
     # Проверяем остались ли мы в том же десятке
     if str(i - 1)[0] == str(i)[0] and int(i) != 11 or int(i) < 11:
@@ -42,9 +42,11 @@ for i in range(1, n + 1):
             max1 = int(c[i])
     else:
         count += 1
-        print('В\033[93m', count, '\033[35mдесятке максимальный ID пользователя:\033[93m', max1, '\033[35m')
-        max1 = int(c[i])
-if i % 2 != 0:
+        if int(c[i]) > max1:
+            max1 = int(c[i])
+        print('В', count, 'десятке максимальный ID пользователя:', max1)
+        max1 = 0
+if n % 5 != 0 and str(n)[-1] != '0' or n == 5:
     count += 1
-    print('В\033[93m', count, '\033[35mдесятке максимальный ID пользователя:\033[93m', max1, '\033[35m\n')
+    print('В', count, 'десятке максимальный ID пользователя:', max1)
 print(c)
