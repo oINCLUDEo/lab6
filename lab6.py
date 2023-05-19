@@ -9,6 +9,9 @@ count = 0
 c = {}
 a = []
 max1 = 0
+if n < 1:
+    print('Натуральных чисел не найдено. Программа закончила свою работу.')
+    exit()
 
 
 def generate_random_number():
